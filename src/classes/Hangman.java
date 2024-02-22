@@ -5,6 +5,8 @@ import processing.core.PApplet;
 public class Hangman {
     private String secretWord;
     private char[] guessedLetters;
+    
+    private int forkertsvar = 0;
 
     public Hangman(String word){
         secretWord = word.toLowerCase();
@@ -32,6 +34,9 @@ public class Hangman {
               letterInSecretWord = true;
             }
           }
+        if (!letterInSecretWord) {
+            forkertsvar++;
+        }
         return letterInSecretWord;
     }
 
@@ -46,6 +51,8 @@ public class Hangman {
     }
 
     public boolean isAlive(){
-        return true;
+        return forkertsvar < 6;
+        
     }
+    
 }
